@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,15 +10,143 @@
     <link rel="stylesheet" href="./index.css">
     <title>Javascript Game</title>
 </head>
+
 <body>
     <ion-app>
-        <ion-content>
+        <ion-content class="ion-padding" color="danger"> 
+          <ion-content class="gradient-bg">
 
-        </ion-content>
-        <ion-content>
-            
+            <!-- New Game -->
+            <ion-row class="ion-justify-content-center ion-margin ion-padding-top">
+              <ion-button fill="clear" class="ion-no-margin">
+                <ion-icon size="large" name="add-circle-outline" color="danger"></ion-icon>
+              </ion-button id="new-game">
+              <ion-text color="medium">
+                <h1 class="title">NEW GAME</h1>                  
+              </ion-text>
+            </ion-row>
+             
+            <!-- Players -->
+            <ion-row class="ion-padding-top">
+              <ion-col class="ion-text-center" size="6">
+                <ion-text class="player-text" color="dark">
+                  <span>PLAYER 1</span> 
+                </ion-text>
+                <ion-icon name="ellipse" class="ion-margin-start" id="player-one" color="danger"></ion-icon>                  
+              </ion-col>
+              <ion-col class="ion-text-center ion-padding-start" size="6">
+                <ion-text class="player-text ion-margin-start" color="dark">
+                  <span>PLAYER 2</span>
+                </ion-text>
+                <ion-icon name="ellipse" class="ion-margin-start" id="player-one" color="danger"></ion-icon>  
+              </ion-col>
+            </ion-row>
+
+            <!-- Number & dice -->
+            <ion-row>
+              <ion-col >
+                <ion-text class="number ion-text-center">
+                  <p id="score-left">45</p>
+                </ion-text>
+              </ion-col>
+
+              <ion-col class="dice ion-margin-vertical" size="1">
+                <div>
+                  <ion-row>
+                    <ion-col>
+                      <ion-icon name="ellipse"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                      <ion-icon name="ellipse" class="ion-margin-start"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-icon name="ellipse"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                      <ion-icon name="ellipse" class="ion-margin-start"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                  <ion-row>
+                    <ion-col>
+                      <ion-icon name="ellipse"></ion-icon>
+                    </ion-col>
+                    <ion-col>
+                      <ion-icon name="ellipse" class="ion-margin-start"></ion-icon>
+                    </ion-col>
+                  </ion-row>
+                </div>
+              </ion-col>
+              
+              <ion-col>
+                <ion-text class="number ion-text-center">
+                  <p id="score-right">45</p>                  
+                </ion-text>
+              </ion-col>
+            </ion-row>
+
+            <!-- Current Game -->
+            <ion-row class="ion-justify-content-center">
+
+              <ion-col size="2" class="ion-no-padding ion-margin-top">
+                <ion-content color="danger">
+                  <ion-text class="ion-text-center" color="dark">
+                    <h2>CURRENT</h2>
+                  </ion-text>                
+                  <ion-text class="ion-text-center">
+                    <h3 id="tp-score-r">11</h3>
+                  </ion-text>
+                </ion-content>
+              </ion-col>
+
+              <!-- Roll & hold -->
+              <ion-col size="4" class="ion-text-center ion-no-margin">
+                <ion-row class="ion-justify-content-center">
+                  <ion-col size="1" class="ion-padding-top">
+                    <ion-button fill="clear" id="roll-dice" >
+                      <ion-icon size="large" name="reload-outline" color="danger"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="5">
+                    <ion-text>
+                      <h2 class="ion-margin-bottom">ROLL DICE</h2>
+                    </ion-text>  
+                  </ion-col>
+                </ion-row>
+
+                <ion-row class="ion-justify-content-center ion-margin-top">
+                  <ion-col size="1" class="ion-padding-top">
+                    <ion-button fill="clear" class="ion-no-padding ion-no-margin" id="hold">
+                      <ion-icon size="large" name="download-outline" color="danger" class="ion-margin-start ion-no-padding"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="5">
+                    <ion-text>
+                      <h2 class="ion-margin-bottom">HOLD</h2>
+                    </ion-text>  
+                  </ion-col>
+                </ion-row>                         
+              </ion-col>
+
+              <ion-col size="2" class="ion-no-padding ion-margin-top">
+                <ion-content color="danger">
+                  <ion-text class="ion-text-center" color="dark">
+                    <h2>CURRENT</h2>
+                  </ion-text>                
+                  <ion-text class="ion-text-center">
+                    <h3 id="tp-score-r">11</h3>
+                  </ion-text>
+                </ion-content>
+              </ion-col>
+
+            </ion-row>
+
+
+          </ion-content>
         </ion-content>
     </ion-app>
-    
+
+<script src="index.js"></script>
 </body>
 </html>
