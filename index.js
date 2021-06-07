@@ -1,13 +1,22 @@
-let newGame = document.getElementById('new-game');
+let newGameButton = document.getElementById('new-game');
 
 let playerOne = document.getElementById('player-one');
-let scorePlayerOne = document.getElementById('score-left');
-let temporaryScorePlayerOne = document.getElementById('tp-score-l');
-
 let playerTwo = document.getElementById('player-two');
+
+let scorePlayerOne = document.getElementById('scoreLeft');
 let scorePlayerTwo = document.getElementById('score-right');
-let temporaryScorePlayerTwo = document.getElementById('tp-score-r');
+
+let temporaryScorePlayerOne = document.getElementById('temp-scoreleft');
+let temporaryScorePlayerTwo = document.getElementById('temp-scoreright');
 
 
 let rollDice = document.getElementById('roll-dice');
 let hold = document.getElementById('hold');
+
+newGameButton.addEventListener('click', initScore => {
+    scorePlayerOne.innerHTML = "00";
+    scorePlayerTwo.innerHTML = "00";
+    temporaryScorePlayerOne.innerHTML = "00";
+    temporaryScorePlayerTwo.innerHTML = "00";
+});
+
