@@ -15,33 +15,44 @@ let five = document.getElementById('five');
 let six = document.getElementById('six');
 
 
-
-newGameButton.addEventListener('click', initAndPlayer)
-
-function initAndPlayer() {
-
+newGameButton.addEventListener('click', () => {
     scorePlayerOne.innerHTML = "00";
     scorePlayerTwo.innerHTML = "00";
     temporaryScorePlayerOne.innerHTML = "00";
-    temporaryScorePlayerTwo.innerHTML = "00";   
-    
+    temporaryScorePlayerTwo.innerHTML = "00";     
+}, false);
+
+
+newGameButton.addEventListener('click', clickPlayerTurn);
+
+function clickPlayerTurn() {
+    return game();
+}
+
+function game() {
     let player = Math.floor(Math.random() * (3 - 1) + 1); 
+    let cp = player;
 
     playerOne.style = "";
     playerTwo.style = "";
 
-    if (player == 1) {
-        playerTwo.style.display = "none"
-    }else if (player == 2) {
-        playerOne.style.display = "none"
+    if (cp == 1) {
+        playerTwo.style.display = "none";
+    }else if (cp == 2) {
+        playerOne.style.display = "none";
     }else {
         alert(`Une erreur est survenue`);
-    }
+    }     
+    return player;
 }
+
+let p = game();
 
 
 rollDice.addEventListener('click', () => {
+
     let randomNumber = Math.floor(Math.random() * (7 - 1) + 1);
+    let n = p;
 
     one.style.color = "";
     two.style.color = "";
@@ -95,9 +106,71 @@ rollDice.addEventListener('click', () => {
             break;
     }    
 
+    if (n === 1) {
+        temporaryScorePlayerOne.innerHTML = randomNumber;
+    }
+    if (n === 2){
+        temporaryScorePlayerTwo.innerHTML = randomNumber;
+    }
+
 
 });
 
 
+
+
+
+
+
+
+
+
+// function playerTurn() {
+    
+//     let player = Math.floor(Math.random() * (3 - 1) + 1); 
+
+//     playerOne.style = "";
+//     playerTwo.style = "";
+
+//     if (player == 1) {
+//         playerTwo.style.display = "none";
+//     }else if (player == 2) {
+//         playerOne.style.display = "none";
+//     }else {
+//         alert(`Une erreur est survenue`);
+//     }        
+// }
+
+
+
+
+
+
+
+
+
+// function initAndPlayer() {
+
+//     scorePlayerOne.innerHTML = "00";
+//     scorePlayerTwo.innerHTML = "00";
+//     temporaryScorePlayerOne.innerHTML = "00";
+//     temporaryScorePlayerTwo.innerHTML = "00";   
+    
+//     let player = Math.floor(Math.random() * (3 - 1) + 1); 
+
+//     playerOne.style = "";
+//     playerTwo.style = "";
+
+//     if (player == 1) {
+//         playerTwo.style.display = "none";
+//     }else if (player == 2) {
+//         playerOne.style.display = "none";
+//     }else {
+//         alert(`Une erreur est survenue`);
+//     }
+
+//     number = initAndPlayer()
+//     return number;
+// }
 
 
