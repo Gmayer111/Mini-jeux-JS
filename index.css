@@ -24,5 +24,18 @@
     margin-top: 50px;
 }
 
+.number-right {
+    right: 2000px;
+    margin-right: 22px
+}
+
+.number-left, .number-right {
+    color: lightcoral;
+    font-size: 1.4em;
+    font-weight: 100;
+    margin-top: 5px;
+}
+
+
 
 
