@@ -10,11 +10,13 @@ let three = document.getElementById('three');
 let four = document.getElementById('four');
 let five = document.getElementById('five');
 let six = document.getElementById('six');
-let ngBtn = document.getElementById('new-game')
 
 let clickCounter = 0;
+// Le jeu initialise tout à 0 et lance toujours le 1er tour sur player 1
+document.getElementById('new-game').addEventListener('click', init)
+    
 
-ngBtn.addEventListener('click', () => {
+function init() {
     
     scorePlayerOne.innerHTML = "00";
     scorePlayerTwo.innerHTML = "00";
@@ -46,11 +48,13 @@ ngBtn.addEventListener('click', () => {
         playerTwo.style.display = "";
     }
 
-});
+};
 
-document.getElementById('roll-dice').addEventListener('click', rollingDice)
+// Cette event lance le dé pour obtenir un nombre aléatoire qui s'affiche et s'inscrit
+// dans le score temporaire du joueur actif
+// Si le résultat est égal à 1 le tour change de joueur
 
-function rollingDice() {
+document.getElementById('roll-dice').addEventListener('click', () => {
 
     let result = Math.floor(Math.random() * (7 - 1) + 1);
 
@@ -141,8 +145,7 @@ function rollingDice() {
             playeOne(iniScoreL)
         }
     }
-}
-
+});
 
 let a = 0;
 let b = 0;
@@ -152,32 +155,35 @@ document.getElementById('hold').addEventListener('click', () => {
 
     clicked++
 
-let x = Number(temporaryScorePlayerOne.innerHTML)
-let j = Number(temporaryScorePlayerTwo.innerHTML)
-a += x;
-
-console.log(`x : ${x}`)
-console.log(`a : ${a}`)
-
-b += j
-console.log(`j : ${j}`)
+    let x = Number(temporaryScorePlayerOne.innerHTML)
+    let j = Number(temporaryScorePlayerTwo.innerHTML)
+    a += x;
+    b += j
 
     if (playerTwo.style.display === "none") {
             scorePlayerOne.textContent = a;
             playerOne.style.display = "none"
             playerTwo.style.display = ""
+        if (a >= 100) {
+            scorePlayerOne.textContent = "Winner"
+            scorePlayerTwo.textContent = "Looser"
+            temporaryScorePlayerOne = 0;
+            temporaryScorePlayerTwo = 0;
+
+        }            
+
     }else {
         scorePlayerTwo.innerHTML = b;
         playerTwo.style.display = "none"
         playerOne.style.display = ""
+        if (b >= 100) {
+            scorePlayerTwo.textContent = "Winner"
+            scorePlayerOne.textContent = "Looser"
+            temporaryScorePlayerOne = 0;
+            temporaryScorePlayerTwo = 0;
+        }
     }
 
-    if (a >= 100) {
-        scorePlayerOne.textContent = "Winner"
-    }
 
-    if (b >= 100) {
-        scorePlayerTwo.textContent = "Winner"
-    }
 })
 
