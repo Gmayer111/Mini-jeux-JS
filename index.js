@@ -14,9 +14,10 @@ let six = document.getElementById('six');
 let clickCounter = 0;
 // Le jeu initialise tout à 0 et lance toujours le 1er tour sur player 1
 document.getElementById('new-game').addEventListener('click', init)
-    
 
 function init() {
+    
+
     
     scorePlayerOne.innerHTML = "00";
     scorePlayerTwo.innerHTML = "00";
@@ -30,6 +31,8 @@ function init() {
     four.style = "";
     five.style = "";
     six.style = "";
+    a = "00";
+    b = "00";
 
     
     let player = Math.floor(Math.random() * (3 - 1) + 1); 
@@ -54,8 +57,12 @@ function init() {
 // dans le score temporaire du joueur actif
 // Si le résultat est égal à 1 le tour change de joueur
 
-document.getElementById('roll-dice').addEventListener('click', () => {
+iniScoreL = 0;
+iniScoreR = 0;
 
+
+document.getElementById('roll-dice').addEventListener('click', () => {
+        
     let result = Math.floor(Math.random() * (7 - 1) + 1);
 
     one.style = "";
@@ -124,6 +131,7 @@ document.getElementById('roll-dice').addEventListener('click', () => {
         iniScoreR = 0;
         if (result !== 1) {
             temporaryScorePlayerOne.innerHTML = iniScoreL; 
+            temporaryScorePlayerTwo.innerHTML = 0
         }else {
             playerOne.style.display = "none" 
             playerTwo.style.display = "" 
@@ -137,6 +145,7 @@ document.getElementById('roll-dice').addEventListener('click', () => {
         iniScoreL = 0;
         if (result !== 1){
             temporaryScorePlayerTwo.innerHTML = iniScoreR; 
+            temporaryScorePlayerOne.innerHTML = 0;
         }else {
             playerOne.style.display = "" 
             playerTwo.style.display = "none" 
@@ -145,6 +154,9 @@ document.getElementById('roll-dice').addEventListener('click', () => {
             playeOne(iniScoreL)
         }
     }
+
+    return result;
+
 });
 
 let a = 0;
@@ -152,38 +164,39 @@ let b = 0;
 let clicked = 0;
 //Fonction hold btn
 document.getElementById('hold').addEventListener('click', () => {
+    
 
     clicked++
+    a += Number(temporaryScorePlayerOne.innerHTML);
+    b += Number(temporaryScorePlayerTwo.innerHTML)
 
-    let x = Number(temporaryScorePlayerOne.innerHTML)
-    let j = Number(temporaryScorePlayerTwo.innerHTML)
-    a += x;
-    b += j
 
     if (playerTwo.style.display === "none") {
             scorePlayerOne.textContent = a;
             playerOne.style.display = "none"
             playerTwo.style.display = ""
-        if (a >= 100) {
+            temporaryScorePlayerOne.innerHTML = "00";
+        if (a >= 10) {
             scorePlayerOne.textContent = "Winner"
             scorePlayerTwo.textContent = "Looser"
-            temporaryScorePlayerOne = 0;
-            temporaryScorePlayerTwo = 0;
-
+            temporaryScorePlayerOne.innerHTML = "00";
+            temporaryScorePlayerTwo.innerHTML = "00";
+            setTimeout(init, 3000);
         }            
-
     }else {
         scorePlayerTwo.innerHTML = b;
         playerTwo.style.display = "none"
         playerOne.style.display = ""
-        if (b >= 100) {
+        temporaryScorePlayerTwo.innerHTML = "00";
+        if (b >= 10) {
             scorePlayerTwo.textContent = "Winner"
             scorePlayerOne.textContent = "Looser"
-            temporaryScorePlayerOne = 0;
-            temporaryScorePlayerTwo = 0;
-        }
-    }
+            temporaryScorePlayerOne.innerHTML = "00";
+            temporaryScorePlayerTwo.innerHTML = "00";
+            setTimeout(init, 3000);
+        }        
+    }        
 
 
-})
+});
 
