@@ -31,8 +31,8 @@ function init() {
     four.style = "";
     five.style = "";
     six.style = "";
-    a = "00";
-    b = "00";
+    a = 0;
+    b = 0;
 
     
     let player = Math.floor(Math.random() * (3 - 1) + 1); 
