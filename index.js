@@ -16,8 +16,6 @@ document.getElementById('new-game').addEventListener('click', init)
 
 function init() {
     
-
-    
     scorePlayerOne.innerHTML = "00";
     scorePlayerTwo.innerHTML = "00";
     temporaryScorePlayerOne.innerHTML = "00";
