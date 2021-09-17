@@ -33,7 +33,6 @@ function init() {
     a = 0;
     b = 0;
 
-    
     let player = Math.floor(Math.random() * (3 - 1) + 1); 
     clickCounter++
 
@@ -147,9 +146,7 @@ document.getElementById('roll-dice').addEventListener('click', () => {
             playeOne(iniScoreL)
         }
     }
-
     return result;
-
 });
 
 let a = 0;
@@ -157,8 +154,7 @@ let b = 0;
 document.getElementById('hold').addEventListener('click', () => {
     
     a += Number(temporaryScorePlayerOne.innerHTML);
-    b += Number(temporaryScorePlayerTwo.innerHTML)
-
+    b += Number(temporaryScorePlayerTwo.innerHTML);
 
     if (playerTwo.style.display === "none") {
             scorePlayerOne.textContent = a;
