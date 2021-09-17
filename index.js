@@ -12,7 +12,6 @@ let five = document.getElementById('five');
 let six = document.getElementById('six');
 
 let clickCounter = 0;
-// Le jeu initialise tout à 0 et lance toujours le 1er tour sur player 1
 document.getElementById('new-game').addEventListener('click', init)
 
 function init() {
@@ -50,16 +49,10 @@ function init() {
         playerOne.style.display = "none";
         playerTwo.style.display = "";
     }
-
 };
-
-// Cette event lance le dé pour obtenir un nombre aléatoire qui s'affiche et s'inscrit
-// dans le score temporaire du joueur actif
-// Si le résultat est égal à 1 le tour change de joueur
 
 iniScoreL = 0;
 iniScoreR = 0;
-
 
 document.getElementById('roll-dice').addEventListener('click', () => {
         
@@ -161,12 +154,8 @@ document.getElementById('roll-dice').addEventListener('click', () => {
 
 let a = 0;
 let b = 0;
-let clicked = 0;
-//Fonction hold btn
 document.getElementById('hold').addEventListener('click', () => {
     
-
-    clicked++
     a += Number(temporaryScorePlayerOne.innerHTML);
     b += Number(temporaryScorePlayerTwo.innerHTML)
 
@@ -196,7 +185,5 @@ document.getElementById('hold').addEventListener('click', () => {
             setTimeout(init, 3000);
         }        
     }        
-
-
 });
 
