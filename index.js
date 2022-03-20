@@ -10,6 +10,7 @@ let three = document.getElementById('three');
 let four = document.getElementById('four');
 let five = document.getElementById('five');
 let six = document.getElementById('six');
+let resultR = document.getElementById('resultR');
 
 let clickCounter = 0;
 document.getElementById('new-game').addEventListener('click', init)
@@ -51,8 +52,11 @@ function init() {
 iniScoreL = 0;
 iniScoreR = 0;
 
-document.getElementById('roll-dice').addEventListener('click', () => {
+document.getElementById('roll-dice').addEventListener('click', rollingDice)
+document.getElementById('roll-diceR').addEventListener('click', rollingDice)
         
+function rollingDice() {
+
     let result = Math.floor(Math.random() * (7 - 1) + 1);
 
     one.style = "";
@@ -61,6 +65,8 @@ document.getElementById('roll-dice').addEventListener('click', () => {
     four.style = "";
     five.style = "";
     six.style = "";
+
+
     
     switch (result) {
         case 1:
@@ -107,6 +113,8 @@ document.getElementById('roll-dice').addEventListener('click', () => {
             break;
     } 
 
+    resultR.innerHTML = result;
+
     iniScoreL += result;
     iniScoreR += result;
 
@@ -117,7 +125,7 @@ document.getElementById('roll-dice').addEventListener('click', () => {
     }    
     
     function playeOne(iniScoreL) {
-   
+        
         iniScoreR = 0;
         if (result !== 1) {
             temporaryScorePlayerOne.innerHTML = iniScoreL; 
@@ -145,11 +153,21 @@ document.getElementById('roll-dice').addEventListener('click', () => {
         }
     }
     return result;
-});
+};
+
+document.getElementById('roll-diceR').addEventListener('click', () => {
+
+})
 
 let a = 0;
 let b = 0;
-document.getElementById('hold').addEventListener('click', () => {
+
+
+document.getElementById('hold').addEventListener('click', hold)
+document.getElementById('holdR').addEventListener('click', hold)
+
+function hold() {
+    
     
     a += Number(temporaryScorePlayerOne.innerHTML);
     b += Number(temporaryScorePlayerTwo.innerHTML);
@@ -179,5 +197,5 @@ document.getElementById('hold').addEventListener('click', () => {
             setTimeout(init, 3000);
         }        
     }        
-});
+};
 

@@ -31,19 +31,19 @@
             <ion-row class="ion-padding-top">
               <ion-col class="ion-text-center" size="6">
                 <ion-text class="player-text" color="dark">
-                  <span>PLAYER 1</span> 
+                  <span class="plO">PLAYER 1</span> 
                 </ion-text>
                 <ion-icon name="ellipse" class="ion-margin-start" id="player-one" color="danger"></ion-icon>                  
               </ion-col>
-              <ion-col class="ion-text-center ion-padding-start" size="6">
-                <ion-text class="player-text ion-margin-start" color="dark">
-                  <span>PLAYER 2</span>
+              <ion-col class="ion-text-center" size="6">
+                <ion-text class="player-text" color="dark">
+                  <span class="plT">PLAYER 2</span>
                 </ion-text>
                 <ion-icon name="ellipse" class="ion-margin-start" id="player-two" color="danger"></ion-icon>  
               </ion-col>
             </ion-row>
 
-            <!-- Final score -->
+            <!-- Final score Left -->
             <ion-row>
               <ion-col >
                 <ion-text class="number ion-text-center">
@@ -52,9 +52,9 @@
               </ion-col>
 
               <!-- Dice -->
-              <ion-col class="dice ion-margin-vertical" size="1">
-                <div>
-                  <ion-row>
+              <ion-col class="ion-margin-vertical" size="1">
+                <div class="dice ion-margin-top">
+                  <ion-row class="dN">
                     <ion-col id="one">
                       <ion-icon name="ellipse"></ion-icon>
                     </ion-col>
@@ -62,7 +62,7 @@
                       <ion-icon name="ellipse" class="ion-margin-start white"></ion-icon>
                     </ion-col>
                   </ion-row>
-                  <ion-row>
+                  <ion-row class="dN">
                     <ion-col id="three">
                       <ion-icon name="ellipse"></ion-icon>
                     </ion-col>
@@ -70,7 +70,7 @@
                       <ion-icon name="ellipse" class="ion-margin-start"></ion-icon>
                     </ion-col>
                   </ion-row>
-                  <ion-row>
+                  <ion-row class="dN">
                     <ion-col id="five">
                       <ion-icon name="ellipse"></ion-icon>
                     </ion-col>
@@ -81,7 +81,7 @@
                 </div>
               </ion-col>
 
-              <!-- Final score -->
+              <!-- Final score Right -->
               <ion-col>
                 <ion-text class="number ion-text-center">
                   <p id="score-right" class="number-right">45</p>                  
@@ -89,13 +89,54 @@
               </ion-col>
             </ion-row>
 
+            <!-- Dice Responsive -->
+            <ion-row class="diceResponsive ion-justify-content-center">
+              <ion-col class="diceR">
+                <div class="ion-text-center">
+                  <h1 id="resultR">00</h1>
+                </div>
+              </ion-col>
+            </ion-row> 
+
+            <!-- Roll Responsive -->
+            <ion-row class="rollResponsive">
+              <ion-col size="4" class="ion-text-center ion-no-margin">
+                <ion-row class="ion-justify-content-center">
+                  <ion-col size="1" class="ion-padding-top">
+                    <ion-button fill="clear" id="roll-diceR">
+                      <ion-icon size="large" name="reload-outline" color="danger"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="5">
+                    <ion-text>
+                      <h2 class="ion-margin-bottom">ROLL DICE</h2>
+                    </ion-text>  
+                  </ion-col>
+                </ion-row>
+
+                <ion-row class="ion-justify-content-center ion-margin-top">
+                  <ion-col size="1" class="ion-padding-top">
+                    <ion-button fill="clear" class="ion-no-padding ion-no-margin" id="holdR">
+                      <ion-icon size="large" name="download-outline" color="danger" class="ion-margin-start ion-no-padding"></ion-icon>
+                    </ion-button>
+                  </ion-col>
+                  <ion-col size="5">
+                    <ion-text>
+                      <h2 class="ion-margin-bottom">HOLD</h2>
+                    </ion-text>  
+                  </ion-col>
+                </ion-row>                         
+              </ion-col>        
+            </ion-row>
+
             <!-- Current Game -->
             <ion-row class="ion-justify-content-center">
 
-              <ion-col size="2" class="ion-no-padding ion-margin-top">
+              <ion-col size="3" class="ion-no-padding ion-margin-top">
                 <ion-content color="danger">
                   <ion-text class="ion-text-center" color="dark">
-                    <h2>CURRENT</h2>
+                    <h2 class="currentT">CURRENT</h2>
+                    <h4 class="currentR">CURRENT</h4>
                   </ion-text>                
                   <ion-text class="ion-text-center">
                     <h3 id="temp-scoreleft">11</h3>
@@ -105,7 +146,8 @@
 
               <!-- Roll & hold -->
               <ion-col size="4" class="ion-text-center ion-no-margin">
-                <ion-row class="ion-justify-content-center">
+
+                <ion-row class="roll ion-justify-content-center">
                   <ion-col size="1" class="ion-padding-top">
                     <ion-button fill="clear" id="roll-dice" >
                       <ion-icon size="large" name="reload-outline" color="danger"></ion-icon>
@@ -119,30 +161,30 @@
                 </ion-row>
 
                 <ion-row class="ion-justify-content-center ion-margin-top">
-                  <ion-col size="1" class="ion-padding-top">
+                  <ion-col size="1" class="hold ion-padding-top">
                     <ion-button fill="clear" class="ion-no-padding ion-no-margin" id="hold">
                       <ion-icon size="large" name="download-outline" color="danger" class="ion-margin-start ion-no-padding"></ion-icon>
                     </ion-button>
                   </ion-col>
                   <ion-col size="5">
                     <ion-text>
-                      <h2 class="ion-margin-bottom">HOLD</h2>
+                      <h2 class="ion-margin-bottom hold">HOLD</h2>
                     </ion-text>  
                   </ion-col>
                 </ion-row>                         
               </ion-col>
 
-              <ion-col size="2" class="ion-no-padding ion-margin-top">
+              <ion-col size="3" class="current ion-no-padding ion-margin-top">
                 <ion-content color="danger">
                   <ion-text class="ion-text-center" color="dark">
-                    <h2>CURRENT</h2>
+                    <h2 class="currentT">CURRENT</h2>
+                    <h4 class="currentR">CURRENT</h4>
                   </ion-text>                
                   <ion-text class="ion-text-center">
                     <h3 id="temp-scoreright">11</h3>
                   </ion-text>
                 </ion-content>
               </ion-col>
-
             </ion-row>
 
 

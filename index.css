@@ -24,6 +24,15 @@
     margin-top: 50px;
 }
 
+.dN {
+    position: relative;
+    
+}
+
+.diceResponsive {
+    display: none;
+}
+
 .number-right {
     right: 2000px;
     margin-right: 22px
@@ -36,6 +45,56 @@
     margin-top: 5px;
 }
 
+.rollResponsive {
+    display: none;
+}
+
+.currentR {
+    display: none;
+}
 
 
+@media screen and (max-width: 700px) {
+    .plT {
+        font-size: 0.4em;
+        position: relative;
+    }
+    .plO {
+        font-size: 0.4em;
+        position: relative;
+   
+    }
+    .dice {
+        display: none;
+    }
+    .diceResponsive {
+        display: block;
+        background-color: white;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        left: 35vw;
+    }
+
+    .roll, .hold {
+        display: none;
+    }
+
+    .rollResponsive {
+        display: block;
+    }
+
+    .current {
+        width: 200px;
+        height: 100px;
+    }
+
+    .currentT {
+        display: none;
+    }
+
+    .currentR {
+        display: block;
+    }
+}
 
